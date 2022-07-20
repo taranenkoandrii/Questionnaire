@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {FormBuilder, Validators} from "@angular/forms";
+import {AnswerChoice} from "../../shared/constants/answer-choice.enum";
 
 @Component({
   selector: 'question-create',
@@ -6,7 +8,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./question-create.component.css']
 })
 export class QuestionCreateComponent {
-  typeOfQuestion!: string;
-  typesOfQuestion: string[] = ['Single choice', 'Multiply choice', 'Open'];
-  value = 'Clear me';
+  public typesOfQuestion = AnswerChoice
+  value = '1';
+  form = this.fb.group({
+    types: ['', Validators.required]
+  })
+
+  constructor(private fb: FormBuilder) {
+  }
+
+  ngOnInit() {
+    console.log(this.typesOfQuestion)
+    this.form.controls['types'].valueChanges.subscribe(value => console.log(value))
+  }
+
 }
