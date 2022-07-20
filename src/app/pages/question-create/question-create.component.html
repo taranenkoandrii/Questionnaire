@@ -13,36 +13,36 @@
         aria-labelledby="radio-group-label"
         class="radio-group">
         <div *ngFor="let type of typesOfQuestion | keyvalue">
-          <input type="radio" class="example-radio-button" [value]="type.value"
-                 formControlName="types">{{type.key}}
+          <input type="radio" class="example-radio-button" [value]="type.key"
+                 formControlName="types">{{type.value}}
         </div>
       </mat-radio-group>
-      <!--      <mat-card-content>-->
-      <!--        <mat-form-field appearance="outline">-->
-      <!--          <mat-label>Text of question</mat-label>-->
-      <!--          <input matInput type="text" [(ngModel)]="value">-->
-      <!--        </mat-form-field>-->
-      <!--        <div class="option-row">-->
-      <!--          <mat-checkbox class="example-margin"></mat-checkbox>-->
-      <!--          <mat-form-field appearance="outline">-->
-      <!--            <mat-label>Option</mat-label>-->
-      <!--            <input matInput type="text">-->
-      <!--          </mat-form-field>-->
-      <!--          <button mat-raised-button color="primary">Delete</button>-->
-      <!--        </div>-->
-      <!--        <div class="option-row">-->
-      <!--          <mat-checkbox class="example-margin"></mat-checkbox>-->
-      <!--          <mat-form-field appearance="outline">-->
-      <!--            <mat-label>Option</mat-label>-->
-      <!--            <input matInput type="text">-->
-      <!--          </mat-form-field>-->
-      <!--          <button mat-raised-button color="primary">Delete</button>-->
-      <!--        </div>-->
-      <!--        <mat-card-actions>-->
-      <!--          <button mat-raised-button color="primary">Add options</button>-->
-      <!--          <button mat-raised-button color="primary">Create</button>-->
-      <!--        </mat-card-actions>-->
-      <!--      </mat-card-content>-->
+            <mat-card-content>
+              <mat-form-field appearance="outline">
+                <mat-label>Text of question</mat-label>
+                <input matInput type="text" [(ngModel)]="value">
+              </mat-form-field>
+              <div class="option-row">
+                <mat-checkbox class="example-margin"></mat-checkbox>
+                <mat-form-field appearance="outline">
+                  <mat-label>Option</mat-label>
+                  <input matInput type="text">
+                </mat-form-field>
+                <button mat-raised-button color="primary">Delete</button>
+              </div>
+              <div class="option-row">
+                <mat-checkbox class="example-margin"></mat-checkbox>
+                <mat-form-field appearance="outline">
+                  <mat-label>Option</mat-label>
+                  <input matInput type="text">
+                </mat-form-field>
+                <button mat-raised-button color="primary">Delete</button>
+              </div>
+              <mat-card-actions>
+                <button mat-raised-button color="primary">Add options</button>
+                <button mat-raised-button color="primary">Create</button>
+              </mat-card-actions>
+            </mat-card-content>
     </form>
   </mat-card>
 </div>

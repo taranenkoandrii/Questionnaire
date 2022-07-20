@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
-import {AnswerChoice} from "../../shared/constants/answer-choice.enum";
+import { AnswerChoiceOptions} from "../../shared/constants/answer-choice.enum";
 
 @Component({
   selector: 'question-create',
@@ -8,7 +8,7 @@ import {AnswerChoice} from "../../shared/constants/answer-choice.enum";
   styleUrls: ['./question-create.component.css']
 })
 export class QuestionCreateComponent {
-  public typesOfQuestion = AnswerChoice
+  public typesOfQuestion = AnswerChoiceOptions
   value = '1';
   form = this.fb.group({
     types: ['', Validators.required]
