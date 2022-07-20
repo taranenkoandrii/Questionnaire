@@ -1,0 +1,42 @@
+<mat-toolbar>
+  <span>My App</span>
+  <span class="example-spacer"></span>
+  <a>
+    <button mat-raised-button color="accent">Back to management</button>
+  </a>
+</mat-toolbar>
+<div class="wrapper">
+  <mat-card>
+    <mat-card-header>Pick question type</mat-card-header>
+    <mat-radio-group
+      aria-labelledby="example-radio-group-label"
+      class="example-radio-group"
+      [(ngModel)]="typeOfQuestion">
+      <mat-radio-button class="example-radio-button" *ngFor="let type of typesOfQuestion" [value]="type">
+        {{type}}
+      </mat-radio-button>
+    </mat-radio-group>
+    <mat-card-content>
+      <form>
+        <mat-form-field appearance="outline">
+          <mat-label>Text of question</mat-label>
+          <input matInput type="text" [(ngModel)]="value">
+        </mat-form-field>
+        <div class="option-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Option</mat-label>
+            <input matInput type="text">
+          </mat-form-field>
+          <button mat-raised-button color="primary">Delete</button>
+        </div>
+        <div class="option-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Option</mat-label>
+            <input matInput type="text">
+          </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary">Delete</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
