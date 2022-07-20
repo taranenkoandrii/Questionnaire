@@ -1,0 +1,40 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.wrapper {
+  display: flex;
+  row-gap: 30px;
+  justify-content: center;
+  column-gap: 500px;
+  padding: 10px;
+}
+
+.list-container-content-left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+}
+
+.lists-container-content-right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+mat-radio-group {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-radio-button {
+  margin-bottom: 5px;
+}
+
