@@ -1,5 +1,5 @@
 <mat-toolbar>
-  <span>My App</span>
+  <span>Questionnaire</span>
   <span class="example-spacer"></span>
   <a>
     <button mat-raised-button color="accent" routerLink="/management">Back to management</button>
@@ -8,44 +8,36 @@
 <div class="wrapper">
   <div class="list-container-content-left">
     <h1 class="title">Unanswered</h1>
-    <mat-card>
-      <mat-card-subtitle>Date:20-07-22</mat-card-subtitle>
-      <p>type questions</p>
-      <mat-card-title>Text of question</mat-card-title>
-      <mat-card-content>
-        <mat-radio-group
-          aria-labelledby="example-radio-group-label"
-          class="example-radio-group">
-          <mat-radio-button class="example-radio-button" *ngFor="let answer of answers" [value]="answer">
-            {{answer}}
-          </mat-radio-button>
-        </mat-radio-group>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-raised-button color="primary">Answer</button>
-      </mat-card-actions>
-    </mat-card>
+    <ng-container *ngFor="let question of unanswered; let i = index">
+      <ng-container *ngIf="question.choice === 0">
+        <single-select-question [question]="question" (answer)="handleAnswer($event)"></single-select-question>
+      </ng-container>
+
+      <ng-container *ngIf="question.choice === 1">
+        <multiple-select-question [question]="question" (answer)="handleAnswer($event)"></multiple-select-question>
+      </ng-container>
+
+      <ng-container *ngIf="question.choice === 2">
+        <open-question [question]="question" (answer)="handleAnswer($event)"></open-question>
+      </ng-container>
+    </ng-container>
   </div>
   <div class="lists-container-content-right">
     <h1 class="title">
       Answered
     </h1>
-     <mat-card>
-      <mat-card-subtitle>Date:20-07-22</mat-card-subtitle>
-      <p>type questions</p>
-      <mat-card-title>Text of question</mat-card-title>
-      <mat-card-content>
-        <mat-radio-group
-          aria-labelledby="example-radio-group-label"
-          class="example-radio-group">
-          <mat-radio-button class="example-radio-button" *ngFor="let answer of answers" [value]="answer">
-            {{answer}}
-          </mat-radio-button>
-        </mat-radio-group>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-raised-button color="warn">Roll Back</button>
-      </mat-card-actions>
-    </mat-card>
+    <ng-container *ngFor="let question of answered; let i = index">
+      <ng-container *ngIf="question.choice === 0">
+        <single-select-question [question]="question" (answer)="handleAnswer($event)"></single-select-question>
+      </ng-container>
+
+      <ng-container *ngIf="question.choice === 1">
+        <multiple-select-question [question]="question" (answer)="handleAnswer($event)"></multiple-select-question>
+      </ng-container>
+
+      <ng-container *ngIf="question.choice === 2">
+        <open-question [question]="question" (answer)="handleAnswer($event)"></open-question>
+      </ng-container>
+    </ng-container>
   </div>
 </div>

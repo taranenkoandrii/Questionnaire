@@ -5,11 +5,15 @@ export interface IQuestionsList {
 }
 
 export interface IQuestion {
+  id: number;
   question: string;
   choice: AnswerChoice;
   createdAt: string;
+  editedAt?: string;
+  answeredAt?: string;
   isAnswered: boolean;
-  answerOptions: IAnswerOption[]
+  answerOptions: IAnswerOption[];
+  answer?: string[];
 }
 
 export interface IAnswerOption {

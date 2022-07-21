@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     private lsService: LocalStorageService,
-  ) {}
+  ) { }
 
 
   ngOnInit(): void {

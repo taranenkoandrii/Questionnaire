@@ -10,6 +10,9 @@ import {QuestionListComponent} from "./pages/question-list/question-list.compone
 import {AppRoutingModule} from "./app-routing.module";
 import {QuestionManagementComponent} from "./pages/question-managment/question-management.component";
 import {NG_VALUE_ACCESSOR, ReactiveFormsModule} from "@angular/forms";
+import { SingleSelectQuestion } from './pages/question-list/single-select-question/single-select-question.component';
+import { MultipleSelectQuestion } from './pages/question-list/multiple-select-question/multiple-select-question.component';
+import { OpenQuestion } from './pages/question-list/open-question/open-question.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import {NG_VALUE_ACCESSOR, ReactiveFormsModule} from "@angular/forms";
     QuestionCreateComponent,
     QuestionEditComponent,
     QuestionListComponent,
-    QuestionManagementComponent
+    QuestionManagementComponent,
+    SingleSelectQuestion,
+    MultipleSelectQuestion,
+    OpenQuestion
   ],
   imports: [
     BrowserModule,

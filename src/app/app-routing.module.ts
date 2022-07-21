@@ -22,7 +22,7 @@ const routes: Routes = [
     data: { isEdit: false }
   },
   {
-    path: 'edit/:itemId',
+    path: 'edit/:id',
     component: QuestionEditComponent,
     data: { isEdit: true }
   },

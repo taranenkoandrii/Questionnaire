@@ -1,5 +1,5 @@
-import {Injectable} from "@angular/core";
-import {IQuestion, IQuestionsList} from "../interfaces/question.interface";
+import { Injectable } from "@angular/core";
+import { IQuestion } from "../interfaces/question.interface";
 
 const QuestionsKey = 'QUESTIONS';
 
@@ -8,26 +8,38 @@ const QuestionsKey = 'QUESTIONS';
 })
 export class LocalStorageService {
 
-  private readonly questions = this.parse(localStorage.getItem(QuestionsKey));
+  private questions: IQuestion[] = this.parse(localStorage.getItem(QuestionsKey));
 
-  constructor() {}
+  constructor() {    
+  }
 
   public setQuestionsKey(): void {
     if (this.isNewUser) {
-      localStorage.setItem(QuestionsKey, '{}');
+      localStorage.setItem(QuestionsKey, '[]');
     }
   }
 
-  public getQuestion(id: string): IQuestion {
+  public getQuestion(id: number): IQuestion {
     return this.questions[id];
   }
 
-  public updateQuestions(questions: IQuestionsList): void {
-    localStorage.setItem(QuestionsKey, this.stringify(questions));
+  public addQuestions(question: IQuestion): void {
+    this.questions = [...this.questions].concat(question);
+    localStorage.setItem(QuestionsKey, this.stringify(this.questions));    
   }
 
-  getAllQuestions() {
-    return this.questions;
+  updateQuestion(id: number, updatedQuestion: IQuestion): void {
+    this.questions[id] = updatedQuestion;
+    localStorage.setItem(QuestionsKey, this.stringify(this.questions));
+  }
+
+  deleteQuestion(index: number) {
+    this.questions = this.questions.filter((_, ind) => ind !== index);
+    localStorage.setItem(QuestionsKey, this.stringify(this.questions));
+  }
+
+  getAllQuestions(): IQuestion[] {
+    return this.parse(localStorage.getItem(QuestionsKey));
   }
 
   private get isNewUser(): boolean {
